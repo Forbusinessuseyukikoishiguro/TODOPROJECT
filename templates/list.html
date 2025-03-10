@@ -1,4 +1,7 @@
-{% for post in object_list %}
-{{ item.title }}
+{% for item in object_list %}
+<ul>
+<li>{{ item.title }}</li>
+<li>{{ item.memo }}</li>
 
+</ul>
 {% endfor %}
