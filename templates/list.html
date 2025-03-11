@@ -13,7 +13,7 @@
 {% block content %}
 <div class = "container">
 {% for item in object_list %}
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-{{ item.priority }}" role="alert">
         <p>{{item.title}}</p>
         <a class="btn btn-info" role="button" aria-disabled="true">編集画面へ</a>
         <a class="btn btn-success" role="button" aria-disabled="true">削除画面へ</a>
