@@ -1,6 +1,7 @@
 from django.shortcuts import render
-# DetailViewではなくDeleteViewを継承する
-from django.views.generic import ListView, DetailView, CreateView, DeleteView
+# DetailViewではなくDeleteViewを継承
+# 修正後
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView  # 'UpdateView' に修正（Vが大文字）
 from .models import TodoModel
 from django.urls import reverse_lazy  # 追加が必要
 
@@ -31,5 +32,11 @@ class TodoDelete(DeleteView):  # DetailViewではなくDeleteView
     model = TodoModel
     success_url = reverse_lazy('list')
 
+
+class TodoUpdate(UpdateView):
+    template_name = 'update.html'
+    model = TodoModel
+    fields = {'title','memo','priority','duedate'}
+    success_url = reverse_lazy('list')
 
 #todoappのviews.py
