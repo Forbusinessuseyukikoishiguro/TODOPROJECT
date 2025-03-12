@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import TodoList, TodoDetail, TodoCreate
+from .views import TodoList, TodoDetail, TodoCreate, TodoDelete  # TodoDeleteをインポート  
 
 urlpatterns = [
     path('list/', TodoList.as_view(), name='list'),
-    path('detail/<int:pk>/', TodoDetail.as_view(), name='detail'),  # 末尾にスラッシュを追加
-    path('create/', TodoCreate.as_view(), name='create')
+    path('detail/<int:pk>/', TodoDetail.as_view(), name='detail'),
+    path('create/', TodoCreate.as_view(), name='create'),  # ここにカンマが必要
+    path('delete/<int:pk>/', TodoDelete.as_view(), name='delete')  # 'dekete'を'delete'に修正
 ]
 
 # todoapp_urls.py

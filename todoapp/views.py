@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+# DetailViewではなくDeleteViewを継承する
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import TodoModel
 from django.urls import reverse_lazy  # 追加が必要
 
@@ -23,4 +24,12 @@ class TodoCreate(CreateView):
     success_url = reverse_lazy('list')
     
     #success_url = '/'  # 作成成功後のリダイレクト先
+
+
+class TodoDelete(DeleteView):  # DetailViewではなくDeleteView
+    template_name = 'delete.html'
+    model = TodoModel
+    success_url = reverse_lazy('list')
+
+
 #todoappのviews.py
