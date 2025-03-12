@@ -7,7 +7,7 @@ urlpatterns = [
     path('detail/<int:pk>/', TodoDetail.as_view(), name='detail'),
     path('create/', TodoCreate.as_view(), name='create'),  # ここにカンマが必要
     path('delete/<int:pk>/', TodoDelete.as_view(), name='delete'), # 'dekete'を'delete'に修正
-    path('update/<int:pk>/', TodoDelete.as_view(), name='update')  
+    path('update/<int:pk>/', TodoUpdate.as_view(), name='update')  
 ]
 
 # todoapp_urls.py
