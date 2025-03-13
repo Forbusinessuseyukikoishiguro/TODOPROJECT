@@ -14,7 +14,7 @@
     <a href="{% url 'create' %}" class="btn btn-info mb-2" role="button">新規作成画面</a>
 {% for item in object_list %}
     <div class="alert alert-{{ item.priority }}" role="alert">
-        <p>{{item.title}} 期日{{ item.duedate}}</p> 
+        <p>{{item.title}} 期日{{ item.duedate | date:"Y/m/d"}}</p> 
         
         
         <a href="{% url 'update' item.pk %}" class="btn btn-primary" role="button">編集画面へ</a>
